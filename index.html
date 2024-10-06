@@ -1,232 +1,94 @@
-<html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TikTok Video Downloader</title>
-  <style>
-      :root {
-          --primary-color: #00f2ea;
-          --secondary-color: #ff0050;
-          --tertiary-color: #7700ff;
-          --background-color: #010101;
-          --text-color: #ffffff;
-          --card-background: #1a1a1a;
-          --input-background: #2a2a2a;
-          --button-hover: #00d2d3;
-      }
-      @keyframes colorChange {
-          0% { color: var(--primary-color); }
-          33% { color: var(--secondary-color); }
-          66% { color: var(--tertiary-color); }
-          100% { color: var(--primary-color); }
-      }
-      @keyframes borderColor {
-          0% { border-color: var(--primary-color); }
-          33% { border-color: var(--secondary-color); }
-          66% { border-color: var(--tertiary-color); }
-          100% { border-color: var(--primary-color); }
-      }
-      @keyframes backgroundChange {
-          0% { background-color: var(--primary-color); }
-          33% { background-color: var(--secondary-color); }
-          66% { background-color: var(--tertiary-color); }
-          100% { background-color: var(--primary-color); }
-      }
-      body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          background-color: var(--background-color);
-          color: var(--text-color);
-          margin: 0;
-          padding: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 100vh;
-      }
-      .container {
-          background-color: var(--card-background);
-          border-radius: 12px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-          padding: 2rem;
-          width: 100%;
-          max-width: 400px;
-          transition: transform 0.3s ease;
-          border: 4px solid var(--primary-color);
-          animation: borderColor 10s infinite;
-      }
-      .container:hover {
-          transform: translateY(-5px);
-      }
-      h1 {
-          font-size: 28px;
-          margin-bottom: 10px;
-          text-align: center;
-          animation: colorChange 10s infinite;
-      }
-      p {
-          color: #888;
-          margin-bottom: 20px;
-          text-align: center;
-      }
-      input {
-          width: 100%;
-          padding: 12px;
-          margin-bottom: 15px;
-          border: none;
-          border-radius: 6px;
-          background-color: var(--input-background);
-          color: var(--text-color);
-          box-sizing: border-box;
-          transition: box-shadow 0.3s ease;
-      }
-      input:focus {
-          outline: none;
-          box-shadow: 0 0 0 2px var(--primary-color);
-      }
-      button {
-          width: 100%;
-          padding: 12px;
-          background-color: var(--primary-color);
-          color: var(--background-color);
-          border: none;
-          border-radius: 6px;
-          cursor: pointer;
-          font-size: 16px;
-          font-weight: bold;
-          transition: background-color 0.3s ease;
-          animation: backgroundChange 10s infinite;
-      }
-      button:hover:not(:disabled) {
-          filter: brightness(1.1);
-      }
-      button:disabled {
-          opacity: 0.5;
-          cursor: not-allowed;
-      }
-      .error {
-          color: var(--secondary-color);
-          margin-top: 10px;
-          text-align: center;
-      }
-      .video-info {
-          margin-top: 20px;
-          background-color: var(--input-background);
-          padding: 15px;
-          border-radius: 6px;
-      }
-      video {
-          width: 100%;
-          margin-top: 10px;
-          border-radius: 6px;
-      }
-      .download-btn {
-          display: inline-block;
-          margin-top: 15px;
-          text-decoration: none;
-          background-color: var(--secondary-color);
-          color: var(--text-color);
-          padding: 10px 15px;
-          border-radius: 6px;
-          text-align: center;
-          transition: background-color 0.3s ease;
-          font-weight: bold;
-          animation: backgroundChange 10s infinite;
-      }
-      .download-btn:hover {
-          filter: brightness(1.1);
-      }
-      .footer {
-          margin-top: 20px;
-          font-size: 12px;
-          color: #888;
-          text-align: center;
-      }
-      .copyright {
-          margin-top: 10px;
-          font-size: 12px;
-          text-align: center;
-          animation: colorChange 10s infinite;
-      }
-  </style>
-</head>
-<body>
-  <div class="container">
-      <h1>TikTok Video Downloader</h1>
-      <p>Enter a TikTok video URL to download</p>
-      <input type="text" id="url-input" placeholder="Enter TikTok video URL">
-      <button id="download-btn">Download</button>
-      <div id="error" class="error"></div>
-      <div id="video-info" class="video-info"></div>
-      <div class="footer">
-          Note: Please ensure you have the right to download and use the video content.
-      </div>
-      <div class="copyright">
-          © 2024 Haru. All rights reserved.
-      </div>
-  </div>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TikTok Video Downloader</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>TikTok Video Downloader</h1>
+            <p>Enter a TikTok video URL to download</p>
+            <input
+                type="text"
+                id="url-input"
+                placeholder="Enter TikTok video URL"
+            />
+            <button id="download-btn">Download</button>
+            <div id="error" class="error"></div>
+            <div id="video-info" class="video-info"></div>
+            <div class="footer">
+                Note: Please ensure you have the right to download and use the
+                video content.
+            </div>
+            <div class="copyright">© 2024 Haru. All rights reserved.</div>
+        </div>
 
-  <script>
-      const urlInput = document.getElementById('url-input');
-      const downloadBtn = document.getElementById('download-btn');
-      const errorDiv = document.getElementById('error');
-      const videoInfoDiv = document.getElementById('video-info');
+        <script>
+            const urlInput = document.getElementById("url-input");
+            const downloadBtn = document.getElementById("download-btn");
+            const errorDiv = document.getElementById("error");
+            const videoInfoDiv = document.getElementById("video-info");
 
-      downloadBtn.addEventListener('click', handleDownload);
+            downloadBtn.addEventListener("click", handleDownload);
 
-      async function handleDownload() {
-          const url = urlInput.value.trim();
-          if (!url) {
-              showError('Please enter a valid TikTok video URL');
-              return;
-          }
+            async function handleDownload() {
+                const url = urlInput.value;
+                if (!url) {
+                    showError("Please enter a valid TikTok video URL");
+                    return;
+                }
 
-          setLoading(true);
-          clearError();
-          clearVideoInfo();
+                setLoading(true);
+                clearError();
+                clearVideoInfo();
 
-          try {
-              const response = await fetch(`https://deku-rest-api.gleeze.com/tiktokdl?url=${encodeURIComponent(url)}`);
-              const data = await response.json();
-              //alert(data.result);
+                try {
+                    const response = await fetch(
+                        `/download?url=${encodeURIComponent(url)}`,
+                    );
+                    const data = await response.json();
 
-              if (data) {
-                  displayVideoInfo(data.result);
-              } else {
-                  showError('Failed to fetch video data. Please check the URL and try again.');
-              }
-          } catch (err) {
-            alert(err.message);
-              showError(err.message);
-          } finally {
-              setLoading(false);
-          }
-      }
+                    if (data) {
+                        displayVideoInfo(data.result);
+                    } else {
+                        showError(
+                            "Failed to fetch video data. Please check the URL and try again.",
+                        );
+                    }
+                } catch (err) {
+                    alert(err.message);
+                    showError(err.message);
+                } finally {
+                    setLoading(false);
+                }
+            }
 
-      function setLoading(isLoading) {
-          downloadBtn.disabled = isLoading;
-          downloadBtn.textContent = isLoading ? 'Loading...' : 'Download';
-      }
+            function setLoading(isLoading) {
+                downloadBtn.disabled = isLoading;
+                downloadBtn.textContent = isLoading ? "Loading..." : "Download";
+            }
 
-      function showError(message) {
-          errorDiv.textContent = message;
-      }
+            function showError(message) {
+                errorDiv.textContent = message;
+            }
 
-      function clearError() {
-          errorDiv.textContent = '';
-      }
+            function clearError() {
+                errorDiv.textContent = "";
+            }
 
-      function clearVideoInfo() {
-          videoInfoDiv.innerHTML = '';
-      }
+            function clearVideoInfo() {
+                videoInfoDiv.innerHTML = "";
+            }
 
-      function displayVideoInfo(data) {
-          videoInfoDiv.innerHTML = `
-              <video src="${data.result}" controls></video>
-              <a href="${data.result}" class="download-btn" download target="_blank" rel="noopener noreferrer">
+            function displayVideoInfo(data) {
+                videoInfoDiv.innerHTML = `
+              <video src="${data}" controls></video>
+              <a href="${data}" class="download-btn" download target="_blank" rel="noopener noreferrer">
                   Download Without Watermark
               </a>
           `;
-      }
-  </script>
-
-
-</body></html>
+            }
+        </script>
+    </body>
+</html>
